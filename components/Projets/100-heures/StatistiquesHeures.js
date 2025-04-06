@@ -1,8 +1,12 @@
 import React from "react";
 
-const StatistiquesHeures = () => {
-  const totalHours = 1; // Nombre total d'heures de travail
-  const lastUpdate = "06/04/2025"; // Dernière mise à jour (modifiable)
+const StatistiquesHeures = ({ heures = [] }) => {
+  const totalHours = heures.length; // Nombre total d'heures de travail
+
+  // Déterminer la dernière mise à jour
+  const lastUpdate = heures.length > 0
+    ? new Date(Math.max(...heures.map(h => new Date(h.date)))).toLocaleDateString('fr-FR')
+    : "Aucune";
 
   // Calcul des jours restants jusqu'au 1er juillet 2025
   const today = new Date();
@@ -10,31 +14,34 @@ const StatistiquesHeures = () => {
   const daysRemaining = Math.max(
     Math.ceil((deadline - today) / (1000 * 60 * 60 * 24)),
     0
-  ); // Empêche un nombre négatif
+  );
 
   return (
-    <div className="flex flex-col lg:flex-row gap-4 mt-10">
-      {/* Card 1: Total Hours */}
-      <div className="card bg-gray-800 text-gray-100 shadow-lg">
-        <div className="card-body">
-          <h2 className="card-title">Heures Totales</h2>
-          <p className="text-blue-400 text-xl">{totalHours} heures</p>
+    <div className="w-full max-w-3xl">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
+        {/* Card 1: Total Hours */}
+        <div className="card bg-base-200 shadow-lg">
+          <div className="card-body">
+            <h2 className="card-title">Heures Totales</h2>
+            <p className="text-primary text-xl font-bold">{totalHours} / 100 heures</p>
+            <progress className="progress progress-primary w-full" value={totalHours} max="100"></progress>
+          </div>
         </div>
-      </div>
 
-      {/* Card 2: Days Remaining */}
-      <div className="card bg-gray-800 text-gray-100 shadow-lg">
-        <div className="card-body">
-          <h2 className="card-title">Temps Restant</h2>
-          <p className="text-blue-400 text-xl">{daysRemaining} jours</p>
+        {/* Card 2: Days Remaining */}
+        <div className="card bg-base-200 shadow-lg">
+          <div className="card-body">
+            <h2 className="card-title">Temps Restant</h2>
+            <p className="text-accent text-xl font-bold">{daysRemaining} jours</p>
+          </div>
         </div>
-      </div>
 
-      {/* Card 3: Last Update */}
-      <div className="card bg-gray-800 text-gray-100 shadow-lg">
-        <div className="card-body">
-          <h2 className="card-title">Dernière Mise à Jour</h2>
-          <p className="text-blue-400 text-xl">{lastUpdate}</p>
+        {/* Card 3: Last Update */}
+        <div className="card bg-base-200 shadow-lg">
+          <div className="card-body">
+            <h2 className="card-title">Dernière Mise à Jour</h2>
+            <p className="text-secondary text-xl font-bold">{lastUpdate}</p>
+          </div>
         </div>
       </div>
     </div>
