@@ -13,7 +13,6 @@ export default function Projects() {
       <p className="text-lg mb-6">
         Là où l&apos;action rencontre l&apos;exécution. Découvrez mes projets en cours.
       </p>
-      <StatistiquesGlobal />
       <ProjetsPresentation />
     </section>
   );

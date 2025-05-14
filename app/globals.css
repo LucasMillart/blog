@@ -4,6 +4,10 @@
    themes: dark --default, light --preferslight;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Roboto', serif;
 }
