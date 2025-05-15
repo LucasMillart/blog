@@ -5,11 +5,7 @@ import { useState, useEffect } from 'react';
 export default function ProgressBarPlanifeo({ isAdmin = false }) {
   // État pour stocker le pourcentage d'avancement
   const [value, setValue] = useState(0);
-
-  // Nombre total de tâches dans votre liste Microsoft To Do
-  const totalTasks = 20; // À remplacer par votre nombre réel de tâches
-
-  // Nombre de tâches complétées (à mettre à jour manuellement)
+  const totalTasks = 20;
   const [completedTasks, setCompletedTasks] = useState(0);
 
   useEffect(() => {

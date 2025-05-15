@@ -152,7 +152,7 @@ export default function ProjetsPresentation() {
                     </div>
                   </div>
                   <div>
-                    <div className="font-bold"><Link href="projets/100-heures">100 heures de travail</Link></div>
+                    <div className="font-bold"><Link href="projets/100-heures">100 heures sur Planifeo</Link></div>
                     <div className="text-sm opacity-50">je tracke mes heures.</div>
                   </div>
                 </div>
