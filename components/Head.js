@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Head = () => {
@@ -8,8 +9,9 @@ const Head = () => {
         Développeur Full Stack
       </h2>
       <p className="text-lg mb-6">
-        Codez mieux. Créez plus. Simplifiez votre vie.
+        Je développe des sites et applications web pensés pour maximiser l&apos;impact<br></br> et la performance du produit final.
       </p>
+      <Link href="/projets" className='btn btn-primary btn-xl'>Projets</Link>
     </header>
   );
 };
